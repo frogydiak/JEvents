@@ -280,7 +280,7 @@ class jevFilter
 	// is this filter visible in a module or the core component - this determines if it should remember its value
 	var $visible = false;
 
-	function jevFilter($tablename, $filterfield, $isString=false){
+	function __construct($tablename, $filterfield, $isString=false){
 		
 
 		$registry	= JRegistry::getInstance("jevents");
@@ -423,7 +423,7 @@ class jevBooleanFilter extends jevFilter
 	var $yesLabel = "";
 	var $noLabel = "";
 
-	function jevBooleanFilter($tablename, $filterfield, $isstring=true,$bothLabel="Both", $yesLabel="Yes", $noLabel="No"){
+	function __construct($tablename, $filterfield, $isstring=true,$bothLabel="Both", $yesLabel="Yes", $noLabel="No"){
 		$this->filterNullValue="-1";
 		$this->yesLabel = $yesLabel;
 		$this->noLabel = $noLabel;
@@ -453,7 +453,7 @@ class jevBooleanFilter extends jevFilter
 
 class jevTitleFilter extends jevFilter
 {
-	function jevTitleFilter ($tablename, $filterfield, $isstring=true){
+	function __construct ($tablename, $filterfield, $isstring=true){
 		$this->filterNullValue="";
 		$this->filterType="title";
 		parent::jevFilter($tablename,$filterfield, true);
